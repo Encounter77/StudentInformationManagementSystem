@@ -1,5 +1,7 @@
 package com.bcxtm.solution.model;
 
+import cn.hutool.db.Entity;
+
 /**
  * @author Jiangyf
  * @version 1.0.0
@@ -7,6 +9,7 @@ package com.bcxtm.solution.model;
  * @Description 学生
  * @createTime 2021年04月30日 14:32:00
  */
+
 public class Student {
 
 	private String stuId;
@@ -178,5 +181,23 @@ public class Student {
 
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
+	}
+
+	@Override
+	public String toString() {
+		return "学生：{" +
+				"学号：'" + stuId + '\'' +
+				", 身份证号：'" + idNum + '\'' +
+				", 姓名：'" + name + '\'' +
+				", 性别：'" + sex + '\'' +
+				", 电话：'" + phone + '\'' +
+				", qq：'" + qq + '\'' +
+				", 家庭住址：'" + address + '\'' +
+				", 班主任姓名：'" + teacherName + '\'' +
+				", 家长姓名：'" + parentName + '\'' +
+				", 家长电话：'" + parentPhone + '\'' +
+				", 电子邮件地址：'" + email + '\'' +
+				", 备注：'" + remarks + '\'' +
+				'}';
 	}
 }
