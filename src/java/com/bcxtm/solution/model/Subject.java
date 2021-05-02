@@ -48,4 +48,14 @@ public class Subject {
 	public void setSubjectInfo(String subjectInfo) {
 		this.subjectInfo = subjectInfo;
 	}
+
+
+	@Override
+	public String toString() {
+		return "专业{" +
+				"专业代号：'" + subjectId + '\'' +
+				", 专业名称：'" + subjectName + '\'' +
+				", 专业信息：'" + subjectInfo + '\'' +
+				'}';
+	}
 }

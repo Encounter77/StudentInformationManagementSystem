@@ -2,6 +2,8 @@ package com.bcxtm.solution.component;
 
 
 import com.bcxtm.solution.model.Student;
+import com.bcxtm.solution.model.StudentClass;
+import com.bcxtm.solution.model.Subject;
 import com.bcxtm.solution.service.SystemService;
 import com.bcxtm.solution.service.UserService;
 
@@ -44,7 +46,13 @@ public class SystemConfig {
         screen.displayMessageLine("\t2.修改学生信息");
         screen.displayMessageLine("\t3.删除学生信息");
         screen.displayMessageLine("\t4.查询学生信息");
-        screen.displayMessageLine("\t5.退出");
+        screen.displayMessageLine("\t5.添加专业信息");
+        screen.displayMessageLine("\t6.添加班级信息");
+        screen.displayMessageLine("\t7.删除班级信息");
+        screen.displayMessageLine("\t8.删除专业信息");
+        screen.displayMessageLine("\t9.查看专业信息");
+        screen.displayMessageLine("\t10.查看班级信息");
+        screen.displayMessageLine("\t100.退出");
         screen.displayMessage("请选择:");
         return keypad.getChoice();
     }
@@ -113,8 +121,46 @@ public class SystemConfig {
                         });
                     }
                     break;
+                case 5:
+                    ss = new SystemService(screen, keypad);
+                    ss.addSubject();
+                    break;
+                case 6:
+                    ss = new SystemService(screen, keypad);
+                    ss.addClass();
+                    break;
+                case 7:
+                    ss = new SystemService(screen, keypad);
+                    ss.deleteClass();
+                    break;
+                case 8:
+                    ss = new SystemService(screen, keypad);
+                    ss.deleteSubject();
+                    break;
+                case 9:
+                    ss = new SystemService(screen, keypad);
+                    List<Subject> subjects = ss.loadSubject();
+                    if (subjects.isEmpty()) {
+                        screen.displayMessageLine("未查询到对应专业信息，请重试！");
+                    } else {
+                        for (Subject subject : subjects) {
+                            screen.displayMessageLine(subject.toString());
+                        }
+                    }
+                    break;
+                case 10:
+                    ss = new SystemService(screen, keypad);
+                    List<StudentClass> classes = ss.loadClass();
+                    if (classes.isEmpty()) {
+                        screen.displayMessageLine("未查询到对应班级信息，请重试！");
+                    } else {
+                        for (StudentClass el : classes) {
+                            screen.displayMessageLine(el.toString());
+                        }
+                    }
+                    break;
             }
-            if (choice != 5) {
+            if (choice != 100) {
                 screen.displayMessage("\t您是否还继续进行操作？(Y/N)");
                 c = keypad.getInput().charAt(0);
                 if (c == 'N' || c == 'n') {

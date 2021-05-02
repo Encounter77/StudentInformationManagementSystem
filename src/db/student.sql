@@ -11,7 +11,7 @@
  Target Server Version : 50727
  File Encoding         : 65001
 
- Date: 01/05/2021 18:53:25
+ Date: 02/05/2021 15:53:47
 */
 
 SET NAMES utf8mb4;
@@ -30,6 +30,15 @@ CREATE TABLE `class` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
+-- Records of class
+-- ----------------------------
+BEGIN;
+INSERT INTO `class` VALUES ('A01', '计科1', '计科', '1');
+INSERT INTO `class` VALUES ('A02', '软工2', '测试', '2');
+INSERT INTO `class` VALUES ('A03', '工程制造', '测试', '2');
+COMMIT;
+
+-- ----------------------------
 -- Table structure for student
 -- ----------------------------
 DROP TABLE IF EXISTS `student`;
@@ -38,8 +47,8 @@ CREATE TABLE `student` (
   `id_num` varchar(18) NOT NULL COMMENT '身份证号',
   `name` varchar(20) DEFAULT NULL COMMENT '姓名',
   `sex` varchar(6) DEFAULT NULL COMMENT '性别',
-  `sid` varchar(64) DEFAULT NULL COMMENT '所属专业',
-  `cid` varchar(64) DEFAULT NULL COMMENT '所属班级',
+  `subject_id` varchar(64) DEFAULT NULL COMMENT '所属专业',
+  `class_id` varchar(64) DEFAULT NULL COMMENT '所属班级',
   `grade` varchar(64) DEFAULT NULL COMMENT '年级',
   `phone` varchar(11) DEFAULT NULL COMMENT '电话',
   `qq` varchar(20) DEFAULT NULL COMMENT 'QQ',
@@ -53,6 +62,12 @@ CREATE TABLE `student` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
+-- Records of student
+-- ----------------------------
+BEGIN;
+COMMIT;
+
+-- ----------------------------
 -- Table structure for subject
 -- ----------------------------
 DROP TABLE IF EXISTS `subject`;
@@ -62,5 +77,14 @@ CREATE TABLE `subject` (
   `subject_info` varchar(255) DEFAULT NULL COMMENT '专业信息',
   PRIMARY KEY (`subject_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of subject
+-- ----------------------------
+BEGIN;
+INSERT INTO `subject` VALUES ('1', '计算机科学与技术', '计算机');
+INSERT INTO `subject` VALUES ('2', '软件工程', '软工');
+INSERT INTO `subject` VALUES ('3', '网络工程', '网络');
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

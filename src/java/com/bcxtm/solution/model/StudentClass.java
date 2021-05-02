@@ -7,7 +7,7 @@ package com.bcxtm.solution.model;
  * @Description 班级
  * @createTime 2021年04月30日 14:32:00
  */
-public class Class {
+public class StudentClass {
 
 	private String classId;
 
@@ -17,10 +17,10 @@ public class Class {
 
 	private String subjectId;
 
-	public Class() {
+	public StudentClass() {
 	}
 
-	public Class(String classId, String className, String classInfo, String subjectId) {
+	public StudentClass(String classId, String className, String classInfo, String subjectId) {
 		this.classId = classId;
 		this.className = className;
 		this.classInfo = classInfo;
@@ -57,5 +57,15 @@ public class Class {
 
 	public void setSubjectId(String subjectId) {
 		this.subjectId = subjectId;
+	}
+
+
+	@Override
+	public String toString() {
+		return "班级{" +
+				"班级代号：'" + classId + '\'' +
+				", 班级名称：'" + className + '\'' +
+				", 班级信息：'" + classInfo + '\'' +
+				'}';
 	}
 }
