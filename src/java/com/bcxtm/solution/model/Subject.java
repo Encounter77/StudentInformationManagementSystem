@@ -1,7 +1,6 @@
 package com.bcxtm.solution.model;
 
 /**
- * @author Jiangyf
  * @version 1.0.0
  * @ClassName Subject.java
  * @Description 专业

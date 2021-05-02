@@ -3,7 +3,6 @@ package com.bcxtm.solution.model;
 import cn.hutool.db.Entity;
 
 /**
- * @author Jiangyf
  * @version 1.0.0
  * @ClassName Student.java
  * @Description 学生
